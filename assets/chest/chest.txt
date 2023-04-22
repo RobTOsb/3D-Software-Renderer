@@ -1,0 +1,19 @@
+s teapot
+m 1
+MODEL ./assets/chest/meshes/chest_mesh.obj
+ALB ./assets/chest/materials/chest_albedo.png
+AO ./assets/chest/materials/chest_ao.png
+METAL ./assets/chest/materials/chest_metal.png
+NORM ./assets/chest/materials/chest_normal.png
+ROUGH ./assets/chest/materials/chest_rough.png
+HEIGHT ./assets/default_height.png
+TRANSLATE 0 0 2
+ROTATION 0 -45 0
+SCALE 1 1 1
+END_MODEL
+
+PLIGHT 0 2 -3 1 1 1 1
+PLIGHT 2 0 -3 1 1 1 1
+
+
+CAMERA c

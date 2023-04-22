@@ -1,0 +1,13 @@
+# ninja log v5
+10	414	7030874621861759	CMakeFiles/Software-Renderer.dir/src/display.cpp.obj	b7e01983f475c8de
+25	964	7038623350241936	CMakeFiles/Software-Renderer.dir/src/renderer.cpp.obj	c16b8f1acad0164d
+13	895	7038623349551916	CMakeFiles/Software-Renderer.dir/src/drawing.cpp.obj	1c782638b9c7c8a0
+16	873	7038623349281944	CMakeFiles/Software-Renderer.dir/src/engine.cpp.obj	2da6e4adcad9b64b
+22	868	7038623349041941	CMakeFiles/Software-Renderer.dir/src/main.cpp.obj	49cace570179f55e
+10	328	7037817937083864	CMakeFiles/Software-Renderer.dir/src/camera.cpp.obj	c667bf7a8ce7fc14
+34	948	7038485637752827	CMakeFiles/Software-Renderer.dir/src/texture.cpp.obj	60b9c0f8207bfea1
+19	910	7038623349701927	CMakeFiles/Software-Renderer.dir/src/input.cpp.obj	ca0600a0b4b02b99
+32	1284	7038609661172928	CMakeFiles/Software-Renderer.dir/src/scene.cpp.obj	b7b17ae6052dc64c
+25	2243	7038609670739218	CMakeFiles/Software-Renderer.dir/src/model.cpp.obj	540d894b3f5226fb
+964	1342	7038623351211920	C:/Users/Robert/source/repos/3D-Software-Renderer/Software-Renderer.exe	3b33d4f18ea4abb8
+6	14	0	clean	8c45b54705a541e8

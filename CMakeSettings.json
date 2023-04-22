@@ -1,0 +1,39 @@
+﻿{
+  "configurations": [
+    {
+      "name": "x64-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "SDL2_DIR",
+          "value": "C:/vclib/SDL2-2.26.3/",
+          "type": "PATH"
+        },
+        {
+          "name": "SDL2_image_DIR",
+          "value": "C:/vclib/SDL2_image-2.6.3/",
+          "type": "PATH"
+        }
+      ],
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.3;C://vclib/SDL2_image-2.6.3"
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.3;C://vclib/SDL2_image-2.6.3",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64" ],
+      "variables": []
+    }
+  ]
+}

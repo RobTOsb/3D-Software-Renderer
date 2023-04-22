@@ -1,0 +1,18 @@
+s firehydrant
+m 1
+MODEL ./assets/firehydrant/meshes/firehydrant_mesh.obj
+ALB ./assets/firehydrant/materials/firehydrant_albedo.png
+AO ./assets/firehydrant/materials/firehydrant_ao.png
+METAL ./assets/firehydrant/materials/firehydrant_metal.png
+NORM ./assets/firehydrant/materials/firehydrant_normal.png
+ROUGH ./assets/firehydrant/materials/firehydrant_rough.png
+HEIGHT ./assets/default_height.png
+TRANSLATE 0 0.5 2
+ROTATION 0 45 180
+SCALE 1 1 1
+END_MODEL
+
+PLIGHT -3 0 -3 10 1 1 1
+PLIGHT 1 2 3 10 1 1 1
+
+CAMERA c
