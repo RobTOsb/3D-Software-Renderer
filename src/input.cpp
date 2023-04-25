@@ -80,7 +80,7 @@ void Input::ProcessEvents(bool& quit, Uint32 totalFrameTime)
             }
             if (event.key.keysym.sym == SDLK_5)
             {
-                std::string filepath = "./assets/chest/chest.txt";
+                std::string filepath = "./assets/bunny/bunny.txt";
                 mRenderer->clearScene();
                 mRenderer->loadScene(filepath);
             }
@@ -98,7 +98,7 @@ void Input::ProcessEvents(bool& quit, Uint32 totalFrameTime)
             }
             if (event.key.keysym.sym == SDLK_8)
             {
-                std::string filepath = "./assets/heating/heating.txt";
+                std::string filepath = "./assets/material_test/material_test.txt";
                 mRenderer->clearScene();
                 mRenderer->loadScene(filepath);
             }

@@ -197,11 +197,3 @@ void Scene::UpdateLights(int delta)
         lightsInScene[i]->Update(delta);
     }
 }
-
-void Scene::UpdateModel(int delta)
-{
-    for (int i = 0; i < modelsInScene.size(); i++)
-    {
-        modelsInScene[i]->Update(delta);
-    }
-}

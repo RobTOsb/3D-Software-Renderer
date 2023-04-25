@@ -51,9 +51,6 @@ public:
 
 	glm::mat4 GetModelMatrix();
 
-	void Update(int dt);
-
-
 	AABB mBoundingBox;
 
 	Texture mAlbedo;

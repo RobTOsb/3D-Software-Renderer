@@ -2,7 +2,7 @@
 
 Camera::Camera()
 {
-	fov = glm::radians(90.0f);
+	fov = glm::radians(65.0f);
 	nearPlane = 0.1f;
 	farPlane = 1000.0f;
 	perspective = glm::perspective(fov, 16.0f / 9.0f, nearPlane, farPlane);

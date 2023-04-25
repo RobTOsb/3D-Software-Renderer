@@ -34,6 +34,8 @@ void Renderer::render()
 
 	PBRShader shader;
 
+	// TODO: implement frustum culling 
+
 	for (auto& model : mCurrentScene.getScene())
 	{
 		AABB transformedBB;

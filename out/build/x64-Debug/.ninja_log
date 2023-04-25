@@ -60,3 +60,14 @@
 11	698	7034291415845779	CMakeFiles/Software-Renderer.dir/src/drawing.cpp.obj	f667b5b01e8ceeaf
 23	724	7034291416095771	CMakeFiles/Software-Renderer.dir/src/renderer.cpp.obj	66108154f14c0240
 724	1184	7034291417946919	C:/Users/Robert/source/repos/3D-Software-Renderer/Software-Renderer.exe	35d05f83a85b2b3c
+22	381	7040463019200927	CMakeFiles/Software-Renderer.dir/src/display.cpp.obj	14b563b268a1848c
+19	546	7040463020850929	CMakeFiles/Software-Renderer.dir/src/camera.cpp.obj	e4bac740eddfe504
+45	818	7040463023570928	CMakeFiles/Software-Renderer.dir/src/texture.cpp.obj	d93c97e02f2cd9c6
+34	860	7040463023980924	CMakeFiles/Software-Renderer.dir/src/main.cpp.obj	4cce437d37feca74
+31	881	7040463024200928	CMakeFiles/Software-Renderer.dir/src/input.cpp.obj	faf111a9bd9de065
+28	882	7040463024200928	CMakeFiles/Software-Renderer.dir/src/engine.cpp.obj	39eab303f310ce6e
+25	883	7040463024190916	CMakeFiles/Software-Renderer.dir/src/drawing.cpp.obj	f667b5b01e8ceeaf
+39	910	7040463024490911	CMakeFiles/Software-Renderer.dir/src/renderer.cpp.obj	66108154f14c0240
+42	942	7040463024820918	CMakeFiles/Software-Renderer.dir/src/scene.cpp.obj	4d090f0ad00954b0
+37	1278	7040463028170922	CMakeFiles/Software-Renderer.dir/src/model.cpp.obj	7b2d7548ddda5dcb
+1278	1739	7040463030044677	C:/Users/Robert/source/repos/3D-Software-Renderer/Software-Renderer.exe	35d05f83a85b2b3c

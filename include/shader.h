@@ -35,7 +35,7 @@ struct PBRShader : IShader
     Texture* mHeight;
 
     //Height scaling factor
-    float heightScale = 0.3f;
+    float heightScale = 0.1f;
 
     //Model data
     glm::vec3 varyingUV[3];
@@ -96,48 +96,35 @@ struct PBRShader : IShader
         return F0 + (1.0f - F0) * pow(glm::clamp(1.0f - cosTheta, 0.0f, 1.0f), 5.0f);
     }
 
-    //Parallax mapping, doesn't work right now
-    //glm::vec2 ParallaxMapping(glm::vec2 uv, glm::vec3 viewDir)
-    //{
-    //    // number of depth layers
-    //    const float minLayers = 8;
-    //    const float maxLayers = 32;
-    //    // number of depth layers
-    //    float numLayers = glm::mix(maxLayers, minLayers, glm::abs(glm::dot(glm::vec3(0, 0, 1), viewDir)));
-    //    // calculate the size of each layer
-    //    float layerDepth = 1.0 / numLayers;
-    //    // depth of current layer
-    //    float currentLayerDepth = 0.0;
+    glm::vec2 parallaxUV(glm::vec2 uv, glm::vec3 viewDir)
+    {
+        int num_layers = 32;
 
-    //    glm::vec2 p = glm::vec2(viewDir.x, viewDir.y) / viewDir.z * heightScale;
+        float layer_depth = 1.0 / num_layers;
+        float cur_layer_depth = 0.0;
+        glm::vec2 delta_uv = glm::vec2(viewDir.x, viewDir.y) * heightScale / (viewDir.z * num_layers);
+        glm::vec2 cur_uv = uv;
 
-    //    glm::vec2 deltaUV = p / numLayers;
+        float depth_from_tex = mHeight->SampleTexture(cur_uv.x, cur_uv.y).r;
 
-    //    glm::vec2 currentUV = uv;
+        for (int i = 0; i < 32; i++) 
+        {
+            cur_layer_depth += layer_depth;
+            cur_uv -= delta_uv;
+            depth_from_tex = mHeight->SampleTexture(cur_uv.x, cur_uv.y).r;
+            if (depth_from_tex < cur_layer_depth) 
+            {
+                break;
+            }
+        }
 
-    //    float currentHeightValue = mHeight->SampleTexture(currentUV.x, currentUV.y).r;
-
-    //    while (currentLayerDepth < currentHeightValue)
-    //    {
-    //        // shift texture coordinates along direction of P
-    //        currentUV -= deltaUV;
-    //        // get depthmap value at current texture coordinates
-    //        currentHeightValue = mHeight->SampleTexture(currentUV.x, currentUV.y).r;
-    //        // get depth of next layer
-    //        currentLayerDepth += layerDepth;
-    //    }
-
-    //    glm::vec2 prevUV = currentUV + deltaUV;
-
-    //    float afterDepth = currentHeightValue - currentLayerDepth;
-    //    float beforeDepth = mHeight->SampleTexture(prevUV.x, prevUV.y).r - currentLayerDepth + layerDepth;
-
-    //    float weight = afterDepth / (afterDepth - beforeDepth);
-
-    //    glm::vec2 finalUV = prevUV * weight + currentUV * (1.0f * weight);
-    //    
-    //    return finalUV;
-    //}
+        glm::vec2 prev_uv = cur_uv + delta_uv;
+        float next = depth_from_tex - cur_layer_depth;
+        float prev = mHeight->SampleTexture(prev_uv.x, prev_uv.y).r - cur_layer_depth
+            + layer_depth;
+        float weight = next / (next - prev);
+        return glm::mix(cur_uv, prev_uv, weight);
+    }
 
     virtual glm::vec4 vertex(glm::vec3 position, glm::vec3& uv, glm::vec3& tangent, glm::vec3& normal, int index) override
     {
@@ -178,18 +165,18 @@ struct PBRShader : IShader
 
         glm::vec3 viewDir = glm::normalize(cameraPos - fragPos);
 
-
-        //TODO: fix parallax mapping
-        //glm::vec2 parallaxUV = ParallaxMapping(glm::vec2(u, v), viewDir);
+        glm::vec2 heightUV = parallaxUV(glm::vec2(u, v), viewDir);
 
         // Sample the albedo and normal textures
-        glm::vec3 albedo = mAlbedo->SampleTexture(u,v);
-        glm::vec3 tNormal = mNormal->SampleTexture(u, v);
-        float ao = mAO->SampleTexture(u, v).r;
-        float metalness = mMetal->SampleTexture(u, v).r;
-        float roughness = mRough->SampleTexture(u, v).r;
-        //Correct normal values, not used because I think it looks a bit different
-        //tNormal = (tNormal * 2.0f - 1.0f);
+        // Accessing the textures is a large use of CPU time
+        // Could write the sample texture function so that it
+        glm::vec3 albedo = mAlbedo->SampleTexture(heightUV.x,heightUV.y);
+        glm::vec3 tNormal = mNormal->SampleTexture(heightUV.x, heightUV.y);
+        float ao = mAO->SampleTexture(heightUV.x, heightUV.y).r;
+        float metalness = mMetal->SampleTexture(heightUV.x, heightUV.y).r;
+        float roughness = mRough->SampleTexture(heightUV.x, heightUV.y).r;
+        //Correct normal values
+        tNormal = (tNormal * 2.0f - 1.0f);
         tNormal = glm::normalize(TBN * tNormal);
 
 
@@ -247,7 +234,9 @@ struct PBRShader : IShader
         }
 
         //Simple ambient term
-        glm::vec3 ambient = glm::vec3(0.1f) * albedo;
+        glm::vec3 ambient = glm::vec3(0.2f) * albedo;
+
+        Lo *= ao;
 
         glm::vec3 color = Lo + ambient;
 

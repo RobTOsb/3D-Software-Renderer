@@ -23,8 +23,6 @@ public:
     std::vector<Lights*> getLights();
 
     void UpdateLights(int delta);
-    void UpdateModel(int delta);
-
     void clearScene();
 
 private:
