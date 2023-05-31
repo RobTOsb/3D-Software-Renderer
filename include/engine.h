@@ -1,5 +1,5 @@
-//Engine class, responsible for setting up everything in
-//the renderer and has the main event loop
+// Engine class, responsible for setting up everything in
+// the renderer and has the main event loop
 
 #ifndef ENGINE_H
 #define ENGINE_H

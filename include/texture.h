@@ -13,11 +13,17 @@ public:
 	~Texture();
 
 	void LoadTexture(const std::string& filename);
+	void TileData();
 
-	glm::vec3 getPixel(float u, float v);
+	Uint32 GetPixel(int u, int v) const;
 	glm::vec3 SampleTexture(float u, float v) const;
 
 private:
 	SDL_Surface* mTextureSurface;
+	int width;
+	int height;
+
+	int tileW = 32;
+	int tileH = 32;
 };
 #endif

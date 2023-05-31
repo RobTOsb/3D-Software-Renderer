@@ -1,18 +1,17 @@
 s material_test
 m 1
-MODEL ./assets/material_test/meshes/plane.obj
-ALB ./assets/material_test/materials/badlands/badlands-boulders_albedo.png
-AO ./assets/material_test/materials/badlands/badlands-boulders_ao.png
-METAL ./assets/material_test/materials/badlands/badlands-boulders_metal.png
-NORM ./assets/material_test/materials/badlands/badlands-boulders_normal.png
-ROUGH ./assets/material_test/materials/badlands/badlands-boulders_rough.png
-HEIGHT ./assets/material_test/materials/badlands/badlands-boulders_height.png
+MODEL ./assets/material_test/meshes/cube.obj
+ALB ./assets/material_test/materials/grime/grime-alley-bricks_2_albedo.png
+AO ./assets/material_test/materials/grime/grime-alley-bricks_2_ao.png
+METAL ./assets/material_test/materials/grime/grime-alley-bricks_2_metal.png
+NORM ./assets/material_test/materials/grime/grime-alley-bricks_2_normal.png
+ROUGH ./assets/material_test/materials/grime/grime-alley-bricks_2_rough.png
+HEIGHT ./assets/material_test/materials/grime/grime-alley-bricks_2_height.png
 TRANSLATE 0 0 -3
-ROTATION 90 0 0
+ROTATION 90 90 90
 SCALE 1 1 1
 END_MODEL
 
 PLIGHT 3 0 -1 10 1 1 0.7
-
 
 CAMERA c

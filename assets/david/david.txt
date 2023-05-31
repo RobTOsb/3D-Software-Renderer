@@ -6,6 +6,7 @@ AO ./assets/david/materials/marble_ao.png
 METAL ./assets/david/materials/marble_metal.png
 NORM ./assets/david/materials/marble_normal.png
 ROUGH ./assets/david/materials/marble_rough.png
+HEIGHT ./assets/default_height.png
 TRANSLATE 0 2.5 -0.5
 ROTATION 90 360 180
 SCALE 0.01 0.01 0.01

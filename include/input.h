@@ -1,4 +1,4 @@
-//Class for processing the user input for the renderer
+// Class for processing the user input for the renderer
 
 #ifndef INPUT_H
 #define INPUT_H

@@ -18,11 +18,12 @@ public:
 	bool ShutDown();
 
 
-	//Mian rendering loop
+	//Main rendering loop
 	//First sets up the shader variables from the models in the scene
 	//Second determines whether the face can be seen by the camera, if not culls the triangle
 	//Third transforms the vertices to world and camera space
-	//Fourth sends the vertices off to get renderered in the drawing class
+	//Fourth clips triangles that are not on screen
+	//Fifth sends the vertices off to get renderered in the drawing class
 	void render();
 
 	//Packs the vertices into triangles for the renderer
@@ -31,6 +32,15 @@ public:
 	Uint32* getPixelBuffer();
 	Camera* getSceneCamera() { return &mCurrentScene.getCamera(); }
 	Scene& getScene() { return mCurrentScene; }
+
+	//Clips triangles but doesn't rebuild them
+	//Hard to rebuild triangles in the data structure I have set up
+	//If I had a vector of triangles, it would be easier to create
+	//triangles to draw.
+	//Separating out the data into their own vectors creates a massive speed up however
+	//Worth profiling between the two solutions
+	//This clipping routine also comes from Angel Ortiz's software renderer
+	bool clipTriangles(glm::vec4* clipSpaceVerts);
 
 	//Clears pixel buffer and z-buffer
 	void bufferClear();

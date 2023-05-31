@@ -9,8 +9,8 @@
 class Display
 {
 public:
-	const static int SCREENWIDTH = 1280;
-	const static int SCREENHEIGHT = 720;
+	const static int SCREENWIDTH = 1920;
+	const static int SCREENHEIGHT = 1080;
 
 
 	Display();

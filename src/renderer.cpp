@@ -8,6 +8,8 @@
 Renderer::Renderer(){}
 Renderer::~Renderer(){}
 
+
+
 bool Renderer::StartUp(const int w, const int h)
 {
 	bool success = true;
@@ -50,7 +52,6 @@ void Renderer::render()
 
 		//Normals
 		std::vector<glm::vec3>* normals = model->getNormals();
-
 		std::vector<glm::ivec3>* normalIndices = model->getNormalIndices();
 
 		//Face normals
@@ -82,6 +83,9 @@ void Renderer::render()
 
 		std::vector<Lights*> lights = mCurrentScene.getLights();
 		
+		// OpenMP for parallelisation, each thread needs its own shader
+		// backface culling causes a large amount of threads to terminate
+		// so schedule dynamic threads
 		#pragma omp parallel for firstprivate(shader) schedule(dynamic)
 		for (int i = 0; i < model->mNumFaces; ++i)
 		{
@@ -101,6 +105,7 @@ void Renderer::render()
 				triangleTangent[j] = (*tangents)[faceV[j]];
 			}
 
+			//If triangle is facing away from camera cull it
 			if (BackfaceCulling((*faceNormals)[i], triangleVertex[0], worldToObject))
 			{
 				continue;
@@ -112,12 +117,34 @@ void Renderer::render()
 			{
 				clipTri[j] = shader.vertex(triangleVertex[j], triangleTexture[j], triangleTangent[j], triangleNormal[j], j);
 			}
+
+			if (clipTriangles(clipTri))
+			{
+				continue;
+			}
 			
 			Drawing::DrawTriangle(mPixelBuffer, clipTri, shader, mZbuffer);
 		}
 	}
 }
 
+bool Renderer::clipTriangles(glm::vec4* triangle)
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		if (triangle[i].x < -triangle[i].w || triangle[i].x > triangle[i].w ||
+			triangle[i].y < -triangle[i].w || triangle[i].y > triangle[i].w ||
+			triangle[i].z < -triangle[i].w || triangle[i].z > triangle[i].w)
+		{
+			return true; // Clip if any vertex is outside of the view frustum
+		}
+	}
+
+	return false; // Don't clip if all vertices are inside the view frustum
+}
+
+// Clears both of the buffers
+// Maybe better way to do this but i'munable to think of one
 void Renderer::bufferClear()
 {
 	for (int i = 0; i < Display::SCREENWIDTH * Display::SCREENHEIGHT; i++)

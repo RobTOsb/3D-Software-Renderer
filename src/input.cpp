@@ -80,13 +80,13 @@ void Input::ProcessEvents(bool& quit, Uint32 totalFrameTime)
             }
             if (event.key.keysym.sym == SDLK_5)
             {
-                std::string filepath = "./assets/bunny/bunny.txt";
+                std::string filepath = "./assets/heating/heating.txt";
                 mRenderer->clearScene();
                 mRenderer->loadScene(filepath);
             }
             if (event.key.keysym.sym == SDLK_6)
             {
-                std::string filepath = "./assets/greek/greek.txt";
+                std::string filepath = "./assets/chest/chest.txt";
                 mRenderer->clearScene();
                 mRenderer->loadScene(filepath);
             }
@@ -131,7 +131,7 @@ void Input::ProcessEvents(bool& quit, Uint32 totalFrameTime)
         mRenderer->getSceneCamera()->StrafeRight(0.005f * totalFrameTime);
     }
 
-    //mRenderer->getScene().UpdateLights(totalFrameTime);
+    mRenderer->getScene().UpdateLights(totalFrameTime);
 }
 
 

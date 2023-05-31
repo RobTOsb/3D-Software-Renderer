@@ -1,6 +1,6 @@
-//This holds all the drawing functions
-//All static so that the renderer can freely access
-//them in it's own class.
+// This holds all the drawing functions
+// All static so that the renderer can freely access
+// them in it's own class.
 
 #ifndef DRAWING_H
 #define DRAWING_H

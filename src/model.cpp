@@ -121,7 +121,8 @@ void Model::CalculateTangent()
     std::vector<std::vector<glm::vec3>> tempBiTangents(mVertices.size());
     glm::vec3 tangent, biTangent;
 
-    for (int i = 0; i < mNumFaces; ++i) {
+    for (int i = 0; i < mNumFaces; ++i) 
+    {
         glm::ivec3 vIndices = mVertexIndices[i];
         glm::ivec3 tIndices = mTextureIndices[i];
 
@@ -157,14 +158,17 @@ void Model::CalculateTangent()
 
     }
 
-    for (int j = 0; j < mVertices.size(); ++j) {
+    for (int j = 0; j < mVertices.size(); ++j) 
+    {
         int count1 = 0, count2 = 0;
 
         glm::vec3 temp1{ 0 };
-        while (!tempTangents[j].empty()) {
+        while (!tempTangents[j].empty()) 
+        {
             ++count1;
             temp1 += tempTangents[j].back();
-            if (temp1.x == 0 && temp1.y == 0 && temp1.z == 0) {
+            if (temp1.x == 0 && temp1.y == 0 && temp1.z == 0) 
+            {
                 temp1 = tempTangents[j].back();
             }
             tempTangents[j].pop_back();
@@ -174,10 +178,13 @@ void Model::CalculateTangent()
         mTangents.push_back(temp1);
 
         glm::vec3 temp2{ 0 };
-        while (!tempBiTangents[j].empty()) {
+        while (!tempBiTangents[j].empty()) 
+        {
+
             ++count2;
             temp2 += tempBiTangents[j].back();
-            if (temp2.x == 0 && temp2.y == 0 && temp2.z == 0) {
+            if (temp2.x == 0 && temp2.y == 0 && temp2.z == 0) 
+            {
                 temp2 = tempBiTangents[j].back();
             }
             tempBiTangents[j].pop_back();
@@ -185,35 +192,7 @@ void Model::CalculateTangent()
         temp2 = temp2 * (1.0f / count2);
         mBiTangents.push_back(temp2);
     }
-
-    //Renormalize and correct handedness of tangent/bitangent vectors
-    for (int k = 0; k < mNumFaces; ++k) {
-        glm::ivec3 vIndices = mVertexIndices[k];
-        glm::ivec3 nIndices = mNormalIndices[k];
-
-        //Per vertex
-        glm::vec3 tangentV0 = mTangents[vIndices[0]];
-        glm::vec3 tangentV1 = mTangents[vIndices[1]];
-        glm::vec3 tangentV2 = mTangents[vIndices[2]];
-
-        glm::vec3 normalV0 = mNormals[nIndices[0]];
-        glm::vec3 normalV1 = mNormals[nIndices[1]];
-        glm::vec3 normalV2 = mNormals[nIndices[2]];
-
-        glm::vec3 biTangentV0 = mBiTangents[vIndices[0]];
-        glm::vec3 biTangentV1 = mBiTangents[vIndices[1]];
-        glm::vec3 biTangentV2 = mBiTangents[vIndices[2]];
-
-        //Renormalizing
-        tangentV0 = glm::normalize(tangentV0 - (normalV0 * glm::dot(tangentV0, normalV0)));
-        tangentV1 = glm::normalize(tangentV1 - (normalV1 * glm::dot(tangentV1, normalV1)));
-        tangentV2 = glm::normalize(tangentV2 - (normalV2 * glm::dot(tangentV2, normalV2)));
-
-        mTangents[vIndices[0]] = tangentV0;
-        mTangents[vIndices[1]] = tangentV1;
-        mTangents[vIndices[2]] = tangentV2;
-
-    }
+ 
 }
 
 // GETTERS AND SETTERS

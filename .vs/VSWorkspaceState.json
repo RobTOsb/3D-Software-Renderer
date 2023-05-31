@@ -1,0 +1,24 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug",
+      "out\\build\\x64-Release",
+      "out\\install\\x64-Release"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\lantern",
+    "\\assets\\material_test\\materials",
+    "\\assets\\material_test\\materials\\grime",
+    "\\assets\\material_test\\meshes",
+    "\\assets\\statue",
+    "\\assets\\teapot",
+    "\\include",
+    "\\src"
+  ],
+  "SelectedNode": "\\assets\\teapot\\teapot.txt",
+  "PreviewInSolutionExplorer": false
+}

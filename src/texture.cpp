@@ -47,13 +47,60 @@ void Texture::LoadTexture(const std::string& filename)
     std::cout << "  Format code: 0x" << std::hex << pixelFormat->format << std::endl;
     std::cout << "  Format name: " << SDL_GetPixelFormatName(pixelFormat->format) << std::endl;
 
+    width = mTextureSurface->w;
+    height = mTextureSurface->h;
+
     flipSurfaceVertically(mTextureSurface);
+
+    
 }
 
-Uint32 GetPixel(SDL_Surface* surface, int x, int y)
+void Texture::TileData() 
 {
-    int bpp = surface->format->BytesPerPixel;
-    Uint8* p = (Uint8*)surface->pixels + y * surface->pitch + x * bpp;
+    // Create a new surface with the same pixel format but adjusted dimensions
+    SDL_Surface* tiledSurface = SDL_CreateRGBSurface(0, width * tileW, height * tileH, mTextureSurface->format->BitsPerPixel, mTextureSurface->format->Rmask, mTextureSurface->format->Gmask, mTextureSurface->format->Bmask, mTextureSurface->format->Amask);
+    if (!tiledSurface)
+    {
+        SDL_Log("Failed to create surface: %s", SDL_GetError());
+        return;
+    }
+
+    // Access the pixel data
+    Uint32* pixelData = static_cast<Uint32*>(mTextureSurface->pixels);
+    Uint32* tiledPixelData = static_cast<Uint32*>(tiledSurface->pixels);
+
+    int tileNumW = width / tileW;
+    int tileNumH = height / tileH;
+
+    for (int tileRow = 0; tileRow < tileNumW; ++tileRow) {
+        for (int tileCol = 0; tileCol < tileNumH; ++tileCol) {
+            for (int tilePixelHeight = 0; tilePixelHeight < tileH; ++tilePixelHeight) {
+                int linearIndex = (tilePixelHeight * width + tileCol * tileW + tileRow * width * tileH);
+                for (int tilePixelWidth = 0; tilePixelWidth < tileW; ++tilePixelWidth) {
+                    int tiledIndex = ((tileRow * tileH + tilePixelHeight) * width * tileNumW + tileCol * tileW + tilePixelWidth);
+                    tiledPixelData[tiledIndex] = pixelData[linearIndex++];
+                }
+            }
+        }
+    }
+
+    // Replace the original surface with the new one
+    SDL_FreeSurface(mTextureSurface);
+    mTextureSurface = tiledSurface;
+}
+
+
+// Function from https://www.libsdl.org/release/SDL-1.2.15/docs/html/guidevideo.html
+Uint32 Texture::GetPixel(int u, int v) const
+{
+    if (u < 0 || v < 0)
+    {
+        u = 0;
+        v = 0;
+    }
+
+    int bpp = mTextureSurface->format->BytesPerPixel;
+    Uint8* p = (Uint8*)mTextureSurface->pixels + v * mTextureSurface->pitch + u * bpp;
 
     switch (bpp)
     {
@@ -69,11 +116,14 @@ Uint32 GetPixel(SDL_Surface* surface, int x, int y)
     case 4:
         return *(Uint32*)p;
     default:
-        return 0; // Should never happen, but avoids compiler warning
+        return 0;
     }
 }
 
-//Use bilinear interpolation to make the output texture smoother
+// Nearest neighbour sampling
+// Used bilinear but it caused a massive slow down
+// Probably because I used getpixel four times to get the information required for bilinear interpolation
+
 glm::vec3 Texture::SampleTexture(float u, float v) const
 {
     // Wrap the UV coordinates using the modulo operator
@@ -84,48 +134,37 @@ glm::vec3 Texture::SampleTexture(float u, float v) const
     if (u < 0.0f) u += 1.0f;
     if (v < 0.0f) v += 1.0f;
 
-    // Convert the wrapped UV coordinates to pixel coordinates
     float x = u * mTextureSurface->w;
     float y = v * mTextureSurface->h;
 
-    // Calculate the integer and fractional parts of x and y
-    int x1 = static_cast<int>(x) % mTextureSurface->w;
-    int y1 = static_cast<int>(y) % mTextureSurface->h;
-    int x2 = (x1 + 1) % mTextureSurface->w;
-    int y2 = (y1 + 1) % mTextureSurface->h;
+    Uint32 color;
 
-    float xFrac = x - floor(x);
-    float yFrac = y - floor(y);
+    color = GetPixel(x, y);
 
-    // Fetch the texel colors at the surrounding pixel coordinates
-    Uint8 r11, g11, b11;
-    Uint8 r12, g12, b12;
-    Uint8 r21, g21, b21;
-    Uint8 r22, g22, b22;
+    // Needed to use exception for when pixel value outside of texture range
+    // Maybe can be solved with proper frustum culling so it doesn't render the model at all?
+    //try 
+    //{
+    //    
+    //}
+    //catch (const std::out_of_range& e) 
+    //{
+    //    std::cerr << "Error: " << e.what() << std::endl;
+    //    color = 0;  // Default pixel color.
+    //}
+    //catch (const std::runtime_error& e) 
+    //{
+    //    std::cerr << "Error: " << e.what() << std::endl;
+    //}
 
-    Uint32 pixel11 = GetPixel(mTextureSurface, x1, y1);
-    Uint32 pixel12 = GetPixel(mTextureSurface, x1, y2);
-    Uint32 pixel21 = GetPixel(mTextureSurface, x2, y1);
-    Uint32 pixel22 = GetPixel(mTextureSurface, x2, y2);
+    Uint8 r, g, b;
 
-    SDL_GetRGB(pixel11, mTextureSurface->format, &r11, &g11, &b11);
-    SDL_GetRGB(pixel12, mTextureSurface->format, &r12, &g12, &b12);
-    SDL_GetRGB(pixel21, mTextureSurface->format, &r21, &g21, &b21);
-    SDL_GetRGB(pixel22, mTextureSurface->format, &r22, &g22, &b22);
+    SDL_GetRGB(color, mTextureSurface->format, &r, &g, &b);
 
-    // Convert the color components from the range 0-255 to the range 0.0-1.0
-    glm::vec3 color11(static_cast<float>(b11) / 255.0f, static_cast<float>(g11) / 255.0f, static_cast<float>(r11) / 255.0f);
-    glm::vec3 color12(static_cast<float>(b12) / 255.0f, static_cast<float>(g12) / 255.0f, static_cast<float>(r12) / 255.0f);
-    glm::vec3 color21(static_cast<float>(b21) / 255.0f, static_cast<float>(g21) / 255.0f, static_cast<float>(r21) / 255.0f);
-    glm::vec3 color22(static_cast<float>(b22) / 255.0f, static_cast<float>(g22) / 255.0f, static_cast<float>(r22) / 255.0f);
+    glm::vec3 colorVec(static_cast<float>(b) / 255.0f, static_cast<float>(g) / 255.0f, static_cast<float>(r) / 255.0f);
 
-    // Perform bilinear interpolation
-    glm::vec3 colorTop = glm::mix(color11, color21, xFrac);
-    glm::vec3 colorBottom = glm::mix(color12, color22, xFrac);
-    glm::vec3 color = glm::mix(colorTop, colorBottom, yFrac);
+    return colorVec;
 
-    glm::vec3 linear_color = glm::pow(color, glm::vec3(2.2f, 2.2f, 2.2f));
-
-    return linear_color;
 }
+
 

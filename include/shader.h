@@ -35,7 +35,7 @@ struct PBRShader : IShader
     Texture* mHeight;
 
     //Height scaling factor
-    float heightScale = 0.1f;
+    float heightScale = 0.05f;
 
     //Model data
     glm::vec3 varyingUV[3];
@@ -93,47 +93,49 @@ struct PBRShader : IShader
 
     glm::vec3 fresnelSchlick(float cosTheta, glm::vec3 F0)
     {
-        return F0 + (1.0f - F0) * pow(glm::clamp(1.0f - cosTheta, 0.0f, 1.0f), 5.0f);
+        float invcCosTheta = 1.0 - cosTheta;
+        return F0 + (glm::vec3(1.0) - F0) * (invcCosTheta * invcCosTheta * invcCosTheta * invcCosTheta * invcCosTheta);      
     }
 
+    //Parallax occlusion mapping
     glm::vec2 parallaxUV(glm::vec2 uv, glm::vec3 viewDir)
     {
-        int num_layers = 32;
+        int numLayers = 128;
 
-        float layer_depth = 1.0 / num_layers;
-        float cur_layer_depth = 0.0;
-        glm::vec2 delta_uv = glm::vec2(viewDir.x, viewDir.y) * heightScale / (viewDir.z * num_layers);
-        glm::vec2 cur_uv = uv;
+        float layerDepth = 1.0 / numLayers;
+        float curLayerDepth = 0.0;
+        glm::vec2 deltaUV = glm::vec2(viewDir.x, viewDir.y) * heightScale / (viewDir.z * numLayers);
+        glm::vec2 curUV = uv;
 
-        float depth_from_tex = mHeight->SampleTexture(cur_uv.x, cur_uv.y).r;
+        float depthFromTex = mHeight->SampleTexture(curUV.x, curUV.y).r;
 
-        for (int i = 0; i < 32; i++) 
+        // Find depth value
+        for (int i = 0; i < numLayers; i++) 
         {
-            cur_layer_depth += layer_depth;
-            cur_uv -= delta_uv;
-            depth_from_tex = mHeight->SampleTexture(cur_uv.x, cur_uv.y).r;
-            if (depth_from_tex < cur_layer_depth) 
+            curLayerDepth += layerDepth;
+            curUV -= deltaUV;
+            depthFromTex = mHeight->SampleTexture(curUV.x, curUV.y).r;
+            if (depthFromTex < curLayerDepth)
             {
                 break;
             }
         }
 
-        glm::vec2 prev_uv = cur_uv + delta_uv;
-        float next = depth_from_tex - cur_layer_depth;
-        float prev = mHeight->SampleTexture(prev_uv.x, prev_uv.y).r - cur_layer_depth
-            + layer_depth;
+        // Interpolate UV's
+        glm::vec2 prevUV = curUV + deltaUV;
+        float next = depthFromTex - curLayerDepth;
+        float prev = mHeight->SampleTexture(prevUV.x, prevUV.y).r - curLayerDepth + layerDepth;
         float weight = next / (next - prev);
-        return glm::mix(cur_uv, prev_uv, weight);
+        return glm::mix(curUV, prevUV, weight);
     }
-
+  
     virtual glm::vec4 vertex(glm::vec3 position, glm::vec3& uv, glm::vec3& tangent, glm::vec3& normal, int index) override
     {
-        //Setup TBN variables
-        Normal[index] = (N * glm::vec4(normal, 1.0f));
-        Tan[index] = (N * glm::vec4(tangent, 1.0f));
-        BiTan[index] = glm::cross(Normal[index], Tan[index]);
-        //TBN = glm::mat3(Tan, BiTan, Normal);
-
+        // Setup TBN variables
+        Normal[index] = (M * glm::vec4(normal, 0.0f));
+        Tan[index] = (M * glm::vec4(tangent, 0.0f));
+        BiTan[index] = (glm::cross(Normal[index], Tan[index]));
+        
         glm::vec4 v = glm::vec4(position, 1.0f);
 
         varyingWorld[index] = glm::vec3(M * v);
@@ -149,40 +151,49 @@ struct PBRShader : IShader
 
     virtual glm::vec3 fragment(glm::vec3 bar) override
     {
-        //Interpolate UV's
+        // Interpolate UV's
         float u = (varyingUV[0].x * bar.x) + (varyingUV[1].x * bar.y) + (varyingUV[2].x * bar.z);
         float v = (varyingUV[0].y * bar.x) + (varyingUV[1].y * bar.y) + (varyingUV[2].y * bar.z);
 
-        //Interpolate the tangent, bitangent and normals
+        // Interpolate the tangent, bitangent and normals
         glm::vec3 tangent = glm::normalize((Tan[0] * bar.x) + (Tan[1] * bar.y) + (Tan[2] * bar.z));
         glm::vec3 normal = glm::normalize((Normal[0] * bar.x) + (Normal[1] * bar.y) + (Normal[2] * bar.z));
         glm::vec3 bitangent = glm::normalize((BiTan[0] * bar.x) + (BiTan[1] * bar.y) + (BiTan[2] * bar.z));
 
-        TBN = glm::mat3(tangent, bitangent, normal);
+        // build TBN matrix
+        TBN = (glm::mat3(tangent, bitangent, normal));
 
-        //Interpolate fragment position
+        // Interpolate fragment position
         glm::vec3 fragPos = glm::vec3(varyingWorld[0] * bar.x + varyingWorld[1] * bar.y + varyingWorld[2] * bar.z);
+
+        //fragPos = TBN * fragPos;
+
 
         glm::vec3 viewDir = glm::normalize(cameraPos - fragPos);
 
+        //viewDir = TBN * viewDir;
+
         glm::vec2 heightUV = parallaxUV(glm::vec2(u, v), viewDir);
+        //glm::vec2 heightUV = glm::vec2(u, v);
 
         // Sample the albedo and normal textures
         // Accessing the textures is a large use of CPU time
         // Could write the sample texture function so that it
+        // is more cache friendly.
         glm::vec3 albedo = mAlbedo->SampleTexture(heightUV.x,heightUV.y);
         glm::vec3 tNormal = mNormal->SampleTexture(heightUV.x, heightUV.y);
         float ao = mAO->SampleTexture(heightUV.x, heightUV.y).r;
         float metalness = mMetal->SampleTexture(heightUV.x, heightUV.y).r;
         float roughness = mRough->SampleTexture(heightUV.x, heightUV.y).r;
+        float height = mHeight->SampleTexture(heightUV.x, heightUV.y).r;
         //Correct normal values
-        tNormal = (tNormal * 2.0f - 1.0f);
+        tNormal = glm::normalize(tNormal * 2.0f - 1.0f);
         tNormal = glm::normalize(TBN * tNormal);
 
-
-        //Corrects the F0 between metal and Dielectric
-        //derived from Angel Ortiz's software renderer
+        // Corrects the F0 between metal and Dielectric
+        // derived from Angel Ortiz's software renderer
         glm::vec3 F0 = glm::vec3(0.04f);
+        
         F0 = glm::mix(F0, albedo, metalness);
         float invMetal = (1.0f - metalness);
         glm::vec3 F0Correct = (F0 * invMetal) + (albedo * metalness);
@@ -192,9 +203,8 @@ struct PBRShader : IShader
         float linear = 0.09f;
         float quadratic = 0.032f;
 
-        //Apply PBR shading for each light in the lights vector
-        //Could make this SIMD if I felt there was a need to, however
-        //I think my current performance is satisfactory for now.
+        // Apply PBR shading for each light in the lights vector
+        // PBR shader derived from LearnOpenGL
         for (int i = 0; i < lights.size(); i++)
         {
 
@@ -216,11 +226,11 @@ struct PBRShader : IShader
             float attenuation = 1.0f / (constant + linear * distance + quadratic * (distance * distance));
             glm::vec3 radiance = lightColor * attenuation;
 
-            //BDRF Cook-Torrance
+            //BRDF Cook-Torrance
             float NDF = DistributionGGX(tNormal, H, roughness);
-            float G = GeometrySmith(tNormal, viewDir, L, roughness);
-            glm::vec3 F = fresnelSchlick(std::max(glm::dot(H, viewDir), 0.0f), F0Correct);
-
+            float G = GeometrySmith(tNormal, viewDir, H, roughness);
+            glm::vec3 F = fresnelSchlick(std::max(glm::dot(H, L), 0.0f), F0Correct);
+   
             glm::vec3 numerator = NDF * G * F;
             float denominator = 4.0f * std::max(glm::dot(tNormal, viewDir), 0.0f) * std::max(glm::dot(tNormal, L), 0.0f) + 0.0001f;
             glm::vec3 specular = (numerator / denominator);
@@ -230,7 +240,7 @@ struct PBRShader : IShader
 
             kD *= invMetal;
 
-            Lo += (kD * albedo / PI + specular) * NdotL * radiance * intensity;
+            Lo += ((kD * (albedo / PI)) + specular) * NdotL * radiance * intensity;
         }
 
         //Simple ambient term
@@ -240,10 +250,12 @@ struct PBRShader : IShader
 
         glm::vec3 color = Lo + ambient;
 
+        glm::vec3 linearColor = glm::pow(color, glm::vec3(2.2f, 2.2f, 2.2f));
+
         //Correct HDR colours
-        color = color / (color + glm::vec3(1.0f));
+        linearColor = linearColor / (linearColor + glm::vec3(1.0f));
          
-        return color;
+        return linearColor;
     }
 };
 #endif

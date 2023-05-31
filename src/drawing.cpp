@@ -5,6 +5,7 @@ Drawing::Drawing(){}
 
 Drawing::~Drawing(){}
 
+// Textures are in RGB24 format
 const SDL_PixelFormat* const Drawing::pixelFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGB24);
 
 //Precalculated gamma table, I got it from Angelo Ortiz's software renderer
@@ -128,6 +129,7 @@ void Drawing::ViewPortTransform(glm::vec3* vertices)
 {
     for (int i = 0; i < 3; i++)
     {
+        // Transform to screen coordinates
         vertices[i].x = ((vertices[i].x + 1) * Display::SCREENWIDTH * 0.5f);
         vertices[i].y = ((vertices[i].y + 1) * Display::SCREENHEIGHT * 0.5f);
     }

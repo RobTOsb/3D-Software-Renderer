@@ -6,6 +6,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "display.h"
+#include <vector>
 
 class Camera
 {
@@ -19,6 +20,9 @@ public:
 	glm::vec3 target = { 0.f, 0.f, 0.f };
 	glm::mat4 getPerspective() { return perspective; }
 	glm::mat4 getView() { return view; }
+	std::vector<glm::vec4> getPlanes() { return frustumPlanes; }
+
+	void calculateFrustumPlanes();
 
 	void UpdateView(glm::vec3 newPos);
 	void MoveForward(float delta);
@@ -35,6 +39,8 @@ private:
 	float fov;
 	float nearPlane;
 	float farPlane;
+
+	std::vector<glm::vec4> frustumPlanes;
 
 	float yaw = -90.0f;
 	float pitch = 0.0f;

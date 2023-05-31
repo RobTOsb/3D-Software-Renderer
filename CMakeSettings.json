@@ -19,6 +19,16 @@
           "name": "SDL2_image_DIR",
           "value": "C:/vclib/SDL2_image-2.6.3/",
           "type": "PATH"
+        },
+        {
+          "name": "_VCPKG_INSTALLED_DIR",
+          "value": "",
+          "type": "PATH"
+        },
+        {
+          "name": "SDL2_IMAGE_LIBRARY",
+          "value": "C:/vclib/SDL2_image-2.6.3/lib/x64/SDL2_image.lib",
+          "type": "FILEPATH"
         }
       ],
       "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.3;C://vclib/SDL2_image-2.6.3"
@@ -33,7 +43,13 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64" ],
-      "variables": []
+      "variables": [
+        {
+          "name": "SDL2_IMAGE_LIBRARY",
+          "value": "C:/vclib/SDL2_image-2.6.3/lib/x64/SDL2_image.lib",
+          "type": "FILEPATH"
+        }
+      ]
     }
   ]
 }
