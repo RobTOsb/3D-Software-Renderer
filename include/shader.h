@@ -97,6 +97,19 @@ struct PBRShader : IShader
         return F0 + (glm::vec3(1.0) - F0) * (invcCosTheta * invcCosTheta * invcCosTheta * invcCosTheta * invcCosTheta);      
     }
 
+    float FresnelDiffuse(glm::vec3 N, glm::vec3 L, glm::vec3 V, glm::vec3 F0)
+    {
+        float NdotL = std::max(glm::dot(N, L), 0.0f);
+        float NdotV = std::max(glm::dot(N, V), 0.0f);
+
+        float invNdotLPow5 = pow(1.0f - NdotL, 5.0f);
+        float invNdotVPow5 = pow(1.0f - NdotV, 5.0f);
+
+        float Fd = (1.0f - F0.x) * 21.0f / (20.0f * PI) * (1.0f - invNdotLPow5) * (1.0f - invNdotVPow5);
+
+        return Fd;
+    }
+
     //Parallax occlusion mapping
     glm::vec2 parallaxUV(glm::vec2 uv, glm::vec3 viewDir)
     {
@@ -230,6 +243,7 @@ struct PBRShader : IShader
             float NDF = DistributionGGX(tNormal, H, roughness);
             float G = GeometrySmith(tNormal, viewDir, H, roughness);
             glm::vec3 F = fresnelSchlick(std::max(glm::dot(H, L), 0.0f), F0Correct);
+            float Fd = FresnelDiffuse(tNormal, L, H, F0);
    
             glm::vec3 numerator = NDF * G * F;
             float denominator = 4.0f * std::max(glm::dot(tNormal, viewDir), 0.0f) * std::max(glm::dot(tNormal, L), 0.0f) + 0.0001f;
@@ -240,7 +254,7 @@ struct PBRShader : IShader
 
             kD *= invMetal;
 
-            Lo += ((kD * (albedo / PI)) + specular) * NdotL * radiance * intensity;
+            Lo += ((kD * (albedo / PI) * Fd) + specular) * NdotL * radiance * intensity;
         }
 
         //Simple ambient term

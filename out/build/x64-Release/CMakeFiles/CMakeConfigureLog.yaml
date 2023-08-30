@@ -23,11 +23,11 @@ events:
       
       The output was:
       0
-      Microsoft (R) C/C++ Optimizing Compiler Version 19.36.32532 for x64
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.36.32535 for x64
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       CMakeCCompilerId.c
-      Microsoft (R) Incremental Linker Version 14.36.32532.0
+      Microsoft (R) Incremental Linker Version 14.36.32535.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       /out:CMakeCCompilerId.exe 
@@ -39,7 +39,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/3.26.0-msvc3/CompilerIdC/CMakeCCompilerId.exe
+        C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/3.26.0-msvc3/CompilerIdC/CMakeCCompilerId.exe
       
   -
     kind: "message-v1"
@@ -51,7 +51,7 @@ events:
     message: |
       Detecting C compiler /showIncludes prefix:
         main.c
-        Note: including file: C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\ShowIncludes\\foo.h
+        Note: including file: C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Note: including file: "
   -
@@ -69,11 +69,11 @@ events:
       
       The output was:
       0
-      Microsoft (R) C/C++ Optimizing Compiler Version 19.36.32532 for x64
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.36.32535 for x64
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       CMakeCXXCompilerId.cpp
-      Microsoft (R) Incremental Linker Version 14.36.32532.0
+      Microsoft (R) Incremental Linker Version 14.36.32535.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
       
       /out:CMakeCXXCompilerId.exe 
@@ -85,7 +85,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/3.26.0-msvc3/CompilerIdCXX/CMakeCXXCompilerId.exe
+        C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/3.26.0-msvc3/CompilerIdCXX/CMakeCXXCompilerId.exe
       
   -
     kind: "message-v1"
@@ -97,7 +97,7 @@ events:
     message: |
       Detecting CXX compiler /showIncludes prefix:
         main.c
-        Note: including file: C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\ShowIncludes\\foo.h
+        Note: including file: C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\ShowIncludes\\foo.h
         
       Found prefix "Note: including file: "
   -
@@ -109,8 +109,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-gxd4im"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-gxd4im"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-36fmwx"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-36fmwx"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -121,10 +121,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-gxd4im
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-36fmwx
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_d6ba2 && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_d6ba2.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_d6ba2.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_d6ba2.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_d6ba2.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_d6ba2.exe /implib:cmTC_d6ba2.lib /pdb:cmTC_d6ba2.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-gxd4im && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-gxd4im/cmTC_d6ba2.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_e0fd0 && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_e0fd0.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_e0fd0.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_e0fd0.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_e0fd0.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_e0fd0.exe /implib:cmTC_e0fd0.lib /pdb:cmTC_e0fd0.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-36fmwx && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-36fmwx/cmTC_e0fd0.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
   -
@@ -136,8 +136,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sdna5m"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sdna5m"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-uosxcu"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-uosxcu"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -148,10 +148,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sdna5m
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-uosxcu
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_e825b && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_e825b.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_e825b.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_e825b.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_e825b.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_e825b.exe /implib:cmTC_e825b.lib /pdb:cmTC_e825b.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-sdna5m && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sdna5m/cmTC_e825b.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_096dc && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_096dc.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_096dc.dir\\ /FS -c "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_096dc.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_096dc.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_096dc.exe /implib:cmTC_096dc.lib /pdb:cmTC_096dc.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-uosxcu && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-uosxcu/cmTC_096dc.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
   -
@@ -163,8 +163,8 @@ events:
       - "CMakeLists.txt:15 (find_package)"
     description: "Detecting C OpenMP compiler info"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sobzx7"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sobzx7"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-yq7fy1"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-yq7fy1"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -175,10 +175,10 @@ events:
       variable: "OpenMP_COMPILE_RESULT_C_openmp"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sobzx7
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-yq7fy1
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_382a0 && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_382a0.dir\\OpenMPTryFlag.c.obj /FdCMakeFiles\\cmTC_382a0.dir\\ /FS -c C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-sobzx7\\OpenMPTryFlag.c
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_382a0.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_382a0.dir\\OpenMPTryFlag.c.obj  /out:cmTC_382a0.exe /implib:cmTC_382a0.lib /pdb:cmTC_382a0.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-sobzx7 && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-sobzx7/cmTC_382a0.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_0d894 && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_0d894.dir\\OpenMPTryFlag.c.obj /FdCMakeFiles\\cmTC_0d894.dir\\ /FS -c C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-yq7fy1\\OpenMPTryFlag.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_0d894.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_0d894.dir\\OpenMPTryFlag.c.obj  /out:cmTC_0d894.exe /implib:cmTC_0d894.lib /pdb:cmTC_0d894.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-yq7fy1 && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-yq7fy1/cmTC_0d894.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
   -
@@ -190,8 +190,8 @@ events:
       - "CMakeLists.txt:15 (find_package)"
     description: "Detecting CXX OpenMP compiler info"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-5qm1z5"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-5qm1z5"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fpyrcb"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fpyrcb"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -202,10 +202,10 @@ events:
       variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-5qm1z5
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fpyrcb
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_e0b58 && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_e0b58.dir\\OpenMPTryFlag.cpp.obj /FdCMakeFiles\\cmTC_e0b58.dir\\ /FS -c C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-5qm1z5\\OpenMPTryFlag.cpp
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_e0b58.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_e0b58.dir\\OpenMPTryFlag.cpp.obj  /out:cmTC_e0b58.exe /implib:cmTC_e0b58.lib /pdb:cmTC_e0b58.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-5qm1z5 && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-5qm1z5/cmTC_e0b58.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_98450 && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_98450.dir\\OpenMPTryFlag.cpp.obj /FdCMakeFiles\\cmTC_98450.dir\\ /FS -c C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-fpyrcb\\OpenMPTryFlag.cpp
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_98450.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_98450.dir\\OpenMPTryFlag.cpp.obj  /out:cmTC_98450.exe /implib:cmTC_98450.lib /pdb:cmTC_98450.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-fpyrcb && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-fpyrcb/cmTC_98450.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
   -
@@ -217,8 +217,8 @@ events:
       - "CMakeLists.txt:15 (find_package)"
     description: "Detecting C OpenMP version"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-tle19n"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-tle19n"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-t93ca1"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-t93ca1"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -229,10 +229,10 @@ events:
       variable: "OpenMP_SPECTEST_C_"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-tle19n
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-t93ca1
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_3f0cf && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_3f0cf.dir\\OpenMPCheckVersion.c.obj /FdCMakeFiles\\cmTC_3f0cf.dir\\ /FS -c C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-tle19n\\OpenMPCheckVersion.c
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_3f0cf.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_3f0cf.dir\\OpenMPCheckVersion.c.obj  /out:cmTC_3f0cf.exe /implib:cmTC_3f0cf.lib /pdb:cmTC_3f0cf.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-tle19n && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-tle19n/cmTC_3f0cf.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_96986 && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_96986.dir\\OpenMPCheckVersion.c.obj /FdCMakeFiles\\cmTC_96986.dir\\ /FS -c C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-t93ca1\\OpenMPCheckVersion.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_96986.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_96986.dir\\OpenMPCheckVersion.c.obj  /out:cmTC_96986.exe /implib:cmTC_96986.lib /pdb:cmTC_96986.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-t93ca1 && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-t93ca1/cmTC_96986.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
   -
@@ -244,8 +244,8 @@ events:
       - "CMakeLists.txt:15 (find_package)"
     description: "Detecting CXX OpenMP version"
     directories:
-      source: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-xm0qct"
-      binary: "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-xm0qct"
+      source: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-k7eum8"
+      binary: "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-k7eum8"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
@@ -256,10 +256,10 @@ events:
       variable: "OpenMP_SPECTEST_CXX_"
       cached: true
       stdout: |
-        Change Dir: C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-xm0qct
+        Change Dir: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-k7eum8
         
-        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_6c054 && [1/2] C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_6c054.dir\\OpenMPCheckVersion.cpp.obj /FdCMakeFiles\\cmTC_6c054.dir\\ /FS -c C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-xm0qct\\OpenMPCheckVersion.cpp
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_6c054.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100220~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_6c054.dir\\OpenMPCheckVersion.cpp.obj  /out:cmTC_6c054.exe /implib:cmTC_6c054.lib /pdb:cmTC_6c054.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\source\\repos\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-xm0qct && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-xm0qct/cmTC_6c054.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe -v cmTC_e912d && [1/2] C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_e912d.dir\\OpenMPCheckVersion.cpp.obj /FdCMakeFiles\\cmTC_e912d.dir\\ /FS -c C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-k7eum8\\OpenMPCheckVersion.cpp
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_e912d.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x86\\mt.exe --manifests  -- C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1436~1.325\\bin\\Hostx86\\x64\\link.exe /nologo CMakeFiles\\cmTC_e912d.dir\\OpenMPCheckVersion.cpp.obj  /out:cmTC_e912d.exe /implib:cmTC_e912d.lib /pdb:cmTC_e912d.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cmd.exe /C "cd /D C:\\Users\\Robert\\Documents\\GitHub\\3D-Software-Renderer\\out\\build\\x64-Release\\CMakeFiles\\CMakeScratch\\TryCompile-k7eum8 && C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noprofile -executionpolicy Bypass -file C:/vclib/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/CMakeFiles/CMakeScratch/TryCompile-k7eum8/cmTC_e912d.exe -installedDir C:/vclib/vcpkg/installed/x64-windows/debug/bin -OutVariable out""
         
       exitCode: 0
 ...

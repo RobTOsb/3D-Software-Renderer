@@ -10,12 +10,8 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\lantern",
-    "\\assets\\material_test\\materials",
-    "\\assets\\material_test\\materials\\grime",
-    "\\assets\\material_test\\meshes",
-    "\\assets\\statue",
     "\\assets\\teapot",
+    "\\assets\\teapot\\meshes",
     "\\include",
     "\\src"
   ],

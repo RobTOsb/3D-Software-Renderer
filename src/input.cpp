@@ -12,7 +12,6 @@ bool Input::StartUp(Renderer* renderer)
     mRenderer = renderer;
 
     std::string defaultFilepath = "./assets/teapot/teapot.txt";
-
     mRenderer->loadScene(defaultFilepath);
 
     return true;

@@ -1,0 +1,17 @@
+s lantern
+m 1
+MODEL ./assets/lantern/meshes/lantern_mesh.obj
+ALB ./assets/lantern/materials/lantern_albedo.jpg
+AO ./assets/lantern/materials/lantern_ao.jpg
+METAL ./assets/lantern/materials/lantern_metal.jpg
+NORM ./assets/lantern/materials/lantern_normal.jpg
+ROUGH ./assets/lantern/materials/lantern_rough.jpg
+HEIGHT ./assets/default_height.png
+TRANSLATE 0 2 -2
+ROTATION 0 0 180
+SCALE 0.05 0.05 0.05
+END_MODEL
+
+PLIGHT 1 0 0 10 1 1 0.7
+
+CAMERA c

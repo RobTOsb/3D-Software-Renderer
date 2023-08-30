@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Robert/source/repos/3D-Software-Renderer
+# Install script for directory: C:/Users/Robert/Documents/GitHub/3D-Software-Renderer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/Robert/source/repos/3D-Software-Renderer/out/install/x64-Release")
+  set(CMAKE_INSTALL_PREFIX "")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Release/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Release/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

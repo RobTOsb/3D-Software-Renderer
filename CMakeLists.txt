@@ -33,6 +33,9 @@ find_library(SDL2_IMAGE_LIBRARY SDL2_image)
 # Set the SDL2_image libraries variable
 set(SDL2_IMAGE_LIBRARIES ${SDL2_IMAGE_LIBRARY})
 
+# include asset directory
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/assets)
+
 # Add the SDL2 include directory to the include path
 include_directories(${SDL2_INCLUDE_DIRS})
 # Add the SDL2_image include directory to the include path
@@ -40,6 +43,7 @@ include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
 # Set the source directory
 set(SOURCE_DIR "src")
+
 
 # Get a list of all the .cpp and .h files in the source directory and its subdirectories
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_DIR}/*.cpp")
@@ -55,8 +59,3 @@ add_executable(Software-Renderer ${SOURCE_FILES} ${HEADER_FILES} ${LIB_FILES})
 
 # Link the SDL2 and SDL2_image libraries
 target_link_libraries(Software-Renderer ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
-
-
-
-
-

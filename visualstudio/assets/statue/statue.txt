@@ -1,0 +1,18 @@
+s statue
+m 1
+MODEL ./assets/statue/meshes/statue_mesh.obj
+ALB ./assets/statue/materials/marble_albedo.png
+AO ./assets/statue/materials/marble_ao.png
+METAL ./assets/statue/materials/marble_metal.png
+NORM ./assets/statue/materials/marble_normal.png
+ROUGH ./assets/statue/materials/marble_rough.png
+HEIGHT ./assets/default_height.png
+TRANSLATE 0 7 -1
+ROTATION 270 180 0
+SCALE 0.5 0.5 0.5
+END_MODEL
+
+PLIGHT -3 2 -6 10 1 1 1
+
+
+CAMERA c

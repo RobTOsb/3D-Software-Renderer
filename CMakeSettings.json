@@ -12,7 +12,7 @@
       "variables": [
         {
           "name": "SDL2_DIR",
-          "value": "C:/vclib/SDL2-2.26.3/",
+          "value": "C:/vclib/SDL2-2.26.5/",
           "type": "PATH"
         },
         {
@@ -21,9 +21,9 @@
           "type": "PATH"
         },
         {
-          "name": "_VCPKG_INSTALLED_DIR",
-          "value": "",
-          "type": "PATH"
+          "name": "CMAKE_PREFIX_PATH",
+          "value": "C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
+          "type": "STRING"
         },
         {
           "name": "SDL2_IMAGE_LIBRARY",
@@ -31,7 +31,7 @@
           "type": "FILEPATH"
         }
       ],
-      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.3;C://vclib/SDL2_image-2.6.3"
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3"
     },
     {
       "name": "x64-Release",
@@ -39,7 +39,7 @@
       "configurationType": "RelWithDebInfo",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.3;C://vclib/SDL2_image-2.6.3",
+      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64" ],
@@ -48,6 +48,26 @@
           "name": "SDL2_IMAGE_LIBRARY",
           "value": "C:/vclib/SDL2_image-2.6.3/lib/x64/SDL2_image.lib",
           "type": "FILEPATH"
+        },
+        {
+          "name": "SDL2_DIR",
+          "value": "C:/vclib/SDL2-2.26.5/cmake",
+          "type": "PATH"
+        },
+        {
+          "name": "CMAKE_PREFIX_PATH",
+          "value": "C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
+          "type": "STRING"
+        },
+        {
+          "name": "_VCPKG_INSTALLED_DIR",
+          "value": "",
+          "type": "PATH"
+        },
+        {
+          "name": "CMAKE_INSTALL_PREFIX",
+          "value": "",
+          "type": "PATH"
         }
       ]
     }

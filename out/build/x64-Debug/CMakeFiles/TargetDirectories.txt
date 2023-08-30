@@ -1,3 +1,3 @@
-C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/Software-Renderer.dir
-C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/Robert/source/repos/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/Software-Renderer.dir
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

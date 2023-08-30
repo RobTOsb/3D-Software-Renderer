@@ -1,0 +1,3 @@
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/visualstudio/CMakeFiles/Software-Renderer.dir
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/visualstudio/CMakeFiles/ALL_BUILD.dir
+C:/Users/Robert/Documents/GitHub/3D-Software-Renderer/visualstudio/CMakeFiles/ZERO_CHECK.dir
