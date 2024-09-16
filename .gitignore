@@ -1,5 +1,7 @@
 
 *.ipch
 *.vsidx
-.vs
+.vs/
+.vscode/
 build/
+vs2022/
