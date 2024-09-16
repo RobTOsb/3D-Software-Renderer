@@ -1,73 +1,50 @@
 ﻿{
   "configurations": [
     {
-      "name": "x64-Debug",
+      "name": "Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
-      "inheritEnvironments": [ "msvc_x64" ],
-      "buildRoot": "${projectDir}\\out\\build\\${name}",
-      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "buildRoot": "${projectDir}/build/debug",
+      "installRoot": "${projectDir}/install/debug",
+      "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "variables": [
         {
-          "name": "SDL2_DIR",
-          "value": "C:/vclib/SDL2-2.26.5/",
-          "type": "PATH"
-        },
-        {
-          "name": "SDL2_image_DIR",
-          "value": "C:/vclib/SDL2_image-2.6.3/",
-          "type": "PATH"
-        },
-        {
-          "name": "CMAKE_PREFIX_PATH",
-          "value": "C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
-          "type": "STRING"
-        },
-        {
-          "name": "SDL2_IMAGE_LIBRARY",
-          "value": "C:/vclib/SDL2_image-2.6.3/lib/x64/SDL2_image.lib",
-          "type": "FILEPATH"
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Debug"
         }
-      ],
-      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3"
+      ]
     },
     {
-      "name": "x64-Release",
+      "name": "Release",
       "generator": "Ninja",
-      "configurationType": "RelWithDebInfo",
-      "buildRoot": "${projectDir}\\out\\build\\${name}",
-      "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DCMAKE_PREFIX_PATH=C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}/build/release",
+      "installRoot": "${projectDir}/install/release",
+      "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x64" ],
       "variables": [
         {
-          "name": "SDL2_IMAGE_LIBRARY",
-          "value": "C:/vclib/SDL2_image-2.6.3/lib/x64/SDL2_image.lib",
-          "type": "FILEPATH"
-        },
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Release"
+        }
+      ]
+    },
+    {
+      "name": "Release with Debug Symbols",
+      "generator": "Ninja",
+      "configurationType": "RelWithDebInfo",
+      "buildRoot": "${projectDir}/build/release_debug",
+      "installRoot": "${projectDir}/install/release_debug",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "variables": [
         {
-          "name": "SDL2_DIR",
-          "value": "C:/vclib/SDL2-2.26.5/cmake",
-          "type": "PATH"
-        },
-        {
-          "name": "CMAKE_PREFIX_PATH",
-          "value": "C://vclib/SDL2-2.26.5;C://vclib/SDL2_image-2.6.3",
-          "type": "STRING"
-        },
-        {
-          "name": "_VCPKG_INSTALLED_DIR",
-          "value": "",
-          "type": "PATH"
-        },
-        {
-          "name": "CMAKE_INSTALL_PREFIX",
-          "value": "",
-          "type": "PATH"
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "RelWithDebInfo"
         }
       ]
     }

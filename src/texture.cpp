@@ -1,6 +1,7 @@
 #include "texture.h"
 #include <iostream>
 #include <algorithm>
+
 Texture::Texture(){}
 
 Texture::~Texture()

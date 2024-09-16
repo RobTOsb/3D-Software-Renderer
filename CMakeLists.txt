@@ -1,61 +1,75 @@
-﻿cmake_minimum_required(VERSION 3.2)
+﻿cmake_minimum_required(VERSION 3.21)
 project(Software-Renderer)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Find the SDL2 library
-find_package(SDL2 REQUIRED)
-# Find the SDL2_image library
-find_package(SDL2_image REQUIRED)
+add_definitions(-DGLM_ENABLE_EXPERIMENTAL)
 
-# Find OpenMP
+include(FetchContent)
+
+
+FetchContent_Declare(
+    SDL2
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+    GIT_TAG release-2.30.0
+)
+
+FetchContent_MakeAvailable(SDL2)
+
+
+FetchContent_Declare(
+    SDL2_image
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
+    GIT_TAG release-2.8.0
+)
+
+set(BUILD_SHARED_LIBS OFF)
+FetchContent_MakeAvailable(SDL2_image)
+
+
+FetchContent_Declare(
+    glm
+    GIT_REPOSITORY https://github.com/g-truc/glm.git
+)
+
+FetchContent_MakeAvailable(glm)
+
 find_package(OpenMP)
 
-# Compiles without omp if not found
-if(OpenMP_CXX_FOUND)
-    # Add OpenMP flags to the compiler and linker
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_CXX_FLAGS}")
-else()
-    message(WARNING "OpenMP not found, the project will be built without OpenMP support.")
-endif()
-
-# It doesn't find the include dir automatically so I have to find it manually
-find_path(SDL2_IMAGE_INCLUDE_DIR SDL_image.h)
-set(SDL2_IMAGE_INCLUDE_DIRS ${SDL2_IMAGE_INCLUDE_DIR})
-
-# Find the SDL2_image library
-find_library(SDL2_IMAGE_LIBRARY SDL2_image)
-
-# Set the SDL2_image libraries variable
-set(SDL2_IMAGE_LIBRARIES ${SDL2_IMAGE_LIBRARY})
-
-# include asset directory
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/assets)
 
-# Add the SDL2 include directory to the include path
-include_directories(${SDL2_INCLUDE_DIRS})
-# Add the SDL2_image include directory to the include path
-include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
-
-# Set the source directory
 set(SOURCE_DIR "src")
 
+set(INCLUDE_DIR "include")
 
-# Get a list of all the .cpp and .h files in the source directory and its subdirectories
-file(GLOB_RECURSE SOURCE_FILES "${SOURCE_DIR}/*.cpp")
+set(IMP_FILES 
+    ${SOURCE_DIR}/main.cpp
+    ${SOURCE_DIR}/renderer.cpp
+    ${SOURCE_DIR}/drawing.cpp
+    ${SOURCE_DIR}/texture.cpp
+    ${SOURCE_DIR}/model.cpp
+    ${SOURCE_DIR}/camera.cpp
+    ${SOURCE_DIR}/display.cpp
+    ${SOURCE_DIR}/scene.cpp
+    ${SOURCE_DIR}/input.cpp
+    ${SOURCE_DIR}/engine.cpp
+    )
 
-# It doesn't find all my header files for some reason so I put this here
-file(GLOB_RECURSE HEADER_FILES include/*.h include/*.hpp)
+add_executable(Software-Renderer ${IMP_FILES} ${INCLUDE_DIR})
 
-# Add the include directory to the include path
-include_directories(include)
+target_include_directories(Software-Renderer PUBLIC ${glm_SOURCE_DIR} ${INCLUDE_DIR})
 
-# Create the executable
-add_executable(Software-Renderer ${SOURCE_FILES} ${HEADER_FILES} ${LIB_FILES})
+target_link_libraries(Software-Renderer PUBLIC SDL2::SDL2-static SDL2_image::SDL2_image-static SDL2::SDL2main)
+add_custom_command(
+    TARGET Software-Renderer POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:Software-Renderer>/assets
+)
 
-# Link the SDL2 and SDL2_image libraries
-target_link_libraries(Software-Renderer ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+add_custom_target(CopyAssets ALL
+    DEPENDS Software-Renderer
+)
