@@ -36,13 +36,13 @@ include(FetchContent)
 #     add_subdirectory(${SDL2_image_SOURCE_DIR} ${SDL2_image_BINARY_DIR})
 # endif()
 
-# # Fetch glm
-# FetchContent_Declare(
-#     glm
-#     GIT_REPOSITORY https://github.com/g-truc/glm.git
-#     GIT_TAG 0.9.9.6
-# )
-# FetchContent_MakeAvailable(glm)
+
+FetchContent_Declare(
+    glm
+    GIT_REPOSITORY https://github.com/g-truc/glm.git
+    GIT_TAG 0.9.9.6
+)
+FetchContent_MakeAvailable(glm)
 
 find_package(OpenMP)
 
