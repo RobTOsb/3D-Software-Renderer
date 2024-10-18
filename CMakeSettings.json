@@ -1,52 +1,27 @@
 ﻿{
   "configurations": [
     {
-      "name": "Debug",
+      "name": "x64-Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
-      "buildRoot": "${projectDir}/build/debug",
-      "installRoot": "${projectDir}/install/debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_BUILD_TYPE",
-          "value": "Debug"
-        }
-      ]
+      "ctestCommandArgs": ""
     },
     {
-      "name": "Release",
-      "generator": "Ninja",
-      "configurationType": "Release",
-      "buildRoot": "${projectDir}/build/release",
-      "installRoot": "${projectDir}/install/release",
-      "cmakeCommandArgs": "",
-      "buildCommandArgs": "",
-      "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_BUILD_TYPE",
-          "value": "Release"
-        }
-      ]
-    },
-    {
-      "name": "Release with Debug Symbols",
+      "name": "x64-Release",
       "generator": "Ninja",
       "configurationType": "RelWithDebInfo",
-      "buildRoot": "${projectDir}/build/release_debug",
-      "installRoot": "${projectDir}/install/release_debug",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "CMAKE_BUILD_TYPE",
-          "value": "RelWithDebInfo"
-        }
-      ]
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": []
     }
   ]
 }

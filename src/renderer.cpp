@@ -68,7 +68,7 @@ void Renderer::render()
 		shader.mMetal = &model->mMetallic;
 		shader.mRough = &model->mRoughness;
 		shader.mNormal = &model->mNormal;
-		shader.mHeight = &model->mHeight;
+		// shader.mHeight = &model->mHeight;
 
 		//Shader matrices
 		shader.MV = getSceneCamera()->getView() * model->GetModelMatrix();
@@ -79,7 +79,7 @@ void Renderer::render()
 		glm::mat4 worldToObject = glm::inverse(shader.M);
 
 		//Shader Lights
-		shader.lights = mCurrentScene.getLights();
+		// shader.lights = mCurrentScene.getLights();
 
 		std::vector<Lights*> lights = mCurrentScene.getLights();
 		
